@@ -8,8 +8,19 @@ Window {
     title: qsTr("Hello World")
 
     Rectangle {
+        id: rec
         width: parent.width
         height: parent.height / 2
-        color: "#123123"
+        color: rec.down ? "orange" : "green"
+
+        MouseArea {
+            onPressed: {
+                rec.color = "orange"
+            }
+            onReleased: {
+                res.color = "green"
+            }
+            anchors.fill: parent
+        }
     }
 }
