@@ -6,4 +6,10 @@ Window {
     height: 480
     visible: true
     title: qsTr("Hello World")
+
+    Rectangle {
+        width: parent.width
+        height: parent.height / 2
+        color: "#123123"
+    }
 }
