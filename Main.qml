@@ -8,8 +8,18 @@ Window {
     title: qsTr("Hello World")
 
     Rectangle {
+        id: rec
+
+        property bool isClicked: false
+
         width: parent.width
         height: parent.height / 2
-        color: "#123123"
+        color: this.isClicked ? "orange" : "green"
+
+        MouseArea {
+            onPressed: parent.isClicked = true
+            onReleased: parent.isClicked = false
+            anchors.fill: parent
+        }
     }
 }
