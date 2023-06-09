@@ -1,5 +1,6 @@
 import QtQuick 2.9
 import QtQuick.Window 2.0
+import QtQuick.Controls 2.5
 
 Window {
     width: 640
@@ -21,5 +22,15 @@ Window {
             onReleased: parent.isClicked = false
             anchors.fill: parent
         }
+    }
+
+    Button {
+        x: 223
+        y: 288
+        width: 195
+        height: 52
+        anchors.horizontalCenter: parent
+        text: "Click me"
+        onClicked: dbHandler.deleteUserAccount("some account")
     }
 }
