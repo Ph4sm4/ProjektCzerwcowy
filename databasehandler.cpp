@@ -25,7 +25,7 @@ QJsonObject DatabaseHandler::performAuthenticatedGET(const QString &databasePath
                                                      const QString &userIdToken,
                                                      const QString &queryParams)
 {
-    QString endPoint = "https://finelogapp-default-rtdb.europe-west1.firebasedatabase.app/"
+    QString endPoint = "https://projektczerwcowy-default-rtdb.europe-west1.firebasedatabase.app/"
                        + databasePath + ".json" + (queryParams.length() ? "?" + queryParams : "")
                        + (queryParams.length() ? "&" : "?") + "auth=" + userIdToken;
     QEventLoop loop;
@@ -130,6 +130,7 @@ bool DatabaseHandler::registerNewUser(User *user, QLabel *errorLabel)
     //        errorLabel->setText("");
 
     //    return response.contains("error") == false;
+    return false;
 }
 
 User *DatabaseHandler::logInWithEmailAndPassword(const QString &email,
@@ -190,6 +191,7 @@ User *DatabaseHandler::logInWithEmailAndPassword(const QString &email,
     //        errorLabel->setText("");
 
     //    return loggedInUser;
+    return nullptr;
 }
 
 QJsonObject DatabaseHandler::signUpWithEmailAndPassword(const QString email, const QString password)
@@ -244,7 +246,7 @@ QJsonObject DatabaseHandler::performAuthenticatedPUT(const QString &databasePath
                                                      const QJsonDocument &payload,
                                                      const QString &userIdToken)
 {
-    QString endPoint = "https://finelogapp-default-rtdb.europe-west1.firebasedatabase.app/"
+    QString endPoint = "https://projektczerwcowy-default-rtdb.europe-west1.firebasedatabase.app/"
                        + databasePath + ".json?auth=" + userIdToken;
 
     QNetworkRequest newReq((QUrl(endPoint)));
@@ -266,7 +268,7 @@ QJsonObject DatabaseHandler::performAuthenticatedPOST(const QString &databasePat
                                                       const QJsonDocument &payload,
                                                       const QString &userIdToken)
 {
-    QString endPoint = "https://finelogapp-default-rtdb.europe-west1.firebasedatabase.app/"
+    QString endPoint = "https://projektczerwcowy-default-rtdb.europe-west1.firebasedatabase.app/"
                        + databasePath + ".json?auth=" + userIdToken;
     QEventLoop loop;
     QNetworkRequest newReq((QUrl(endPoint)));
@@ -325,7 +327,7 @@ QJsonObject DatabaseHandler::performAuthenticatedPATCH(const QString &databasePa
                                                        const QJsonDocument &payload,
                                                        const QString &userIdToken)
 {
-    QString endPoint = "https://finelogapp-default-rtdb.europe-west1.firebasedatabase.app/"
+    QString endPoint = "https://projektczerwcowy-default-rtdb.europe-west1.firebasedatabase.app/"
                        + databasePath + ".json?auth=" + userIdToken;
     QEventLoop loop;
     QNetworkRequest newReq((QUrl(endPoint)));
